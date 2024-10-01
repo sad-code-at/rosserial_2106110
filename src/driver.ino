@@ -22,8 +22,8 @@ void cmdVelCallback(const geometry_msgs::Twist& cmd_vel) {
   float angular = cmd_vel.angular.z; // range 0 to 1.0
 
 // setting the direction of the motors
-  digitalWrite(IN1, HIGH);
-  digitalWrite(IN2, LOW);
+  digitalWrite(IN1,HIGH);
+  digitalWrite(IN2,LOW);
 
   digitalWrite(IN3, HIGH);
   digitalWrite(IN4, LOW);
@@ -40,9 +40,7 @@ void cmdVelCallback(const geometry_msgs::Twist& cmd_vel) {
     motor_speed_A = angular * 255;
     motor_speed_B = angular *255;           
   }
-  // Adjust speed limits
-  motor_speed_A = constrain(motor_speed_A, 0, 255);
-  motor_speed_B = constrain(motor_speed_B, 0, 255);
+  
 
   // Set motor direction and speed for motor A
   

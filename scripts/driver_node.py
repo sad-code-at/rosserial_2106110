@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import rospy
 from geometry_msgs.msg import Twist
-from std_msgs.msg import Float16MultiArray
+from std_msgs.msg import Float32MultiArray
 
 # Callback function to process sensor data
 def sensor_callback(data):
@@ -46,7 +46,7 @@ if __name__ == '__main__':
         movement_speed = 0.0
         
         # Subscribe to the /sensor_data topic
-        rospy.Subscriber("/sensor_data", Float16MultiArray, sensor_callback)
+        rospy.Subscriber("/sensor_data", Float32MultiArray, sensor_callback)
         
         # Publisher for /cmd_vel topic
         cmd_vel_pub = rospy.Publisher("/cmd_vel", Twist, queue_size=15)
